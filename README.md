@@ -18,7 +18,7 @@ This project represents the early-stage development of a healthcare platform. It
 
  🛠 Tech Stack
 -   Framework: Angular 21 (Standalone Components)
--   Language: TypeScript 5.2+
+-   Language: TypeScript 5.3.2
 -   Styling: Vanilla CSS (Modular & Scoped)
 -   Architecture: Component-based, Data-driven
 
