@@ -17,7 +17,7 @@ This project represents the early-stage development of a healthcare platform. It
 <img width="1087" height="270" alt="image" src="https://github.com/user-attachments/assets/37ce410b-2249-4f81-ace2-8141fc506121" />
 
  🛠 Tech Stack
--   Framework: Angular 17+ (Standalone Components)
+-   Framework: Angular 21 (Standalone Components)
 -   Language: TypeScript 5.2+
 -   Styling: Vanilla CSS (Modular & Scoped)
 -   Architecture: Component-based, Data-driven
