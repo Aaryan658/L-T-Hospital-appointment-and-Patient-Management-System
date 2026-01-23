@@ -1,0 +1,136 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+:root {
+    /* Primary Medical Palette */
+    --primary-color: #0056b3; /* Deep Professional Blue */
+    --primary-light: #e3f2fd; /* Soft Blue Background */
+    --secondary-color: #607d8b; /* Calming Grey-Blue */
+    --accent-color: #009688; /* Teal for Success/Action */
+    
+    /* Functional Colors */
+    --text-primary: #2c3e50;
+    --text-secondary: #546e7a;
+    --border-color: #e0e0e0;
+    --bg-ground: #f4f6f8; /* Soft Grey-White for App Background */
+    --bg-card: #ffffff;
+    
+    /* Status Colors */
+    --status-pending: #fff3cd;
+    --status-pending-text: #856404;
+    --status-approved: #d4edda;
+    --status-approved-text: #155724;
+    --status-rejected: #f8d7da;
+    --status-rejected-text: #721c24;
+    --status-busy: #ffebee;
+    --status-busy-text: #c62828;
+    
+    /* Spacing & Layout */
+    --spacing-unit: 8px;
+    --card-radius: 8px;
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    background-color: var(--bg-ground);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* --- Layout Utilities --- */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    min-height: calc(100vh - 64px); /* Full height minus navbar */
+}
+
+/* --- Typography --- */
+h1 {
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--secondary-color);
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--primary-light);
+    padding-bottom: 8px;
+    display: inline-block;
+}
+
+/* --- Card Styles --- */
+.mat-mdc-card {
+    background: var(--bg-card) !important;
+    border-radius: var(--card-radius) !important;
+    box-shadow: var(--shadow-soft) !important;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mat-mdc-card:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08) !important;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+/* --- Status Badges --- */
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.pending { background-color: var(--status-pending); color: var(--status-pending-text); }
+.status-badge.approved, .status-badge.available { background-color: var(--status-approved); color: var(--status-approved-text); }
+.status-badge.rejected, .status-badge.busy { background-color: var(--status-rejected); color: var(--status-rejected-text); }
+
+/* --- Button Overrides --- */
+.mat-mdc-raised-button.mat-primary {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    box-shadow: 0 2px 4px rgba(0, 86, 179, 0.3);
+}
+
+.mat-mdc-outlined-button {
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+/* --- Empty States --- */
+.empty-state {
+    text-align: center;
+    padding: 48px;
+    background: white;
+    border-radius: var(--card-radius);
+    border: 1px dashed var(--border-color);
+    color: var(--text-secondary);
+}
+
+.empty-state mat-icon {
+    font-size: 48px;
+    height: 48px;
+    width: 48px;
+    opacity: 0.5;
+    margin-bottom: 16px;
+}
+
+/* --- Flex Utilities --- */
+.flex-row { display: flex; align-items: center; gap: 16px; }
+.flex-between { display: flex; justify-content: space-between; align-items: center; }
+.gap-16 { gap: 16px; }
+.full-width { width: 100%; }
+.mt-16 { margin-top: 16px; }

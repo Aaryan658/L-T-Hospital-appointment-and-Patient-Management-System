@@ -1,0 +1,112 @@
+<div class="dashboard-container">
+
+    <!-- 2. Patient Summary (Compact Identity Card) -->
+    <div class="patient-identity-card fade-in-up" *ngIf="patient">
+        <div class="card-content">
+            <div class="avatar-column">
+                <div class="avatar-circle" [class.male]="patient.gender === 'Male'"
+                    [class.female]="patient.gender === 'Female'">
+                    <mat-icon>person</mat-icon>
+                </div>
+            </div>
+
+            <div class="info-column">
+                <div class="name-row">
+                    <h1 class="patient-name">{{ patient.name }}</h1>
+                    <span class="patient-id">ID: P00{{ patient.id }}</span>
+                </div>
+                <div class="metadata-row">
+                    <span class="meta-item">{{ patient.age }} Years</span>
+                    <span class="separator">•</span>
+                    <span class="meta-item">{{ patient.gender }}</span>
+                    <span class="separator">•</span>
+                    <span class="meta-item badge-pill">{{ patient.bloodGroup }}</span>
+                </div>
+                <div class="contact-row" *ngIf="patient.contactNumber || patient.city">
+                    <span class="sub-text">{{ patient.city }}</span>
+                    <span class="separator-dot">•</span>
+                    <span class="sub-text">{{ patient.contactNumber }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. My Appointments (Primary Actionable Section) -->
+    <div class="appointments-section fade-in-up delay-1">
+        <div class="section-header">
+            <h2 class="section-title">My Appointments</h2>
+        </div>
+
+        <div class="appointments-card mat-elevation-z0">
+            <div *ngIf="appointments.length > 0; else noAppointments" class="table-wrapper">
+                <table mat-table [dataSource]="appointments">
+                    <!-- Doctor Column -->
+                    <ng-container matColumnDef="doctor">
+                        <th mat-header-cell *matHeaderCellDef> SPECIALIST </th>
+                        <td mat-cell *matCellDef="let appointment">
+                            <div class="doctor-info">
+                                <mat-icon class="mini-icon">medical_services</mat-icon>
+                                <span class="text-strong">{{ getDoctorName(appointment.doctorId) }}</span>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <!-- Date Column -->
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef> DATE & TIME </th>
+                        <td mat-cell *matCellDef="let appointment">
+                            <div class="date-info">
+                                {{ appointment.preferredDate | date:'mediumDate' }}
+                                <span class="time-hint">{{ appointment.preferredDate | date:'shortTime' }}</span>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <!-- Status Column -->
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef class="text-right"> STATUS </th>
+                        <td mat-cell *matCellDef="let appointment" class="text-right">
+                            <span class="status-pill" [ngClass]="appointment.status.toLowerCase()">
+                                {{ appointment.status }}
+                            </span>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+
+            <ng-template #noAppointments>
+                <div class="empty-state">
+                    <mat-icon>event_busy</mat-icon>
+                    <p class="empty-title">No Scheduled Appointments</p>
+                    <p class="empty-subtitle">You haven't booked any appointments yet.</p>
+                    <button mat-raised-button color="primary" routerLink="/doctors" class="action-button">
+                        Book a Specialist
+                    </button>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+    <!-- 3. Medical History (Secondary, Lighter) -->
+    <div class="history-section fade-in-up delay-2">
+        <h3 class="subsection-title">Medical History</h3>
+
+        <div class="history-container">
+            <div *ngIf="patient?.medicalHistory?.length; else noHistory" class="history-list">
+                <div class="tags-container">
+                    <span *ngFor="let item of patient!.medicalHistory" class="medical-tag">
+                        <mat-icon class="tag-icon">check</mat-icon> {{ item }}
+                    </span>
+                </div>
+            </div>
+            <ng-template #noHistory>
+                <div class="empty-history-state">
+                    <p class="muted-text">No medical history records available yet.</p>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,149 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 64px);
+    background-color: #f7f9fc;
+    /* Soft professional grey */
+    padding: 24px;
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-card {
+    width: 100%;
+    max-width: 440px;
+    padding: 0;
+    /* Let inner content handle padding */
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    /* Soft, elevated shadow */
+    overflow: hidden;
+}
+
+mat-card-header {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    padding: 40px 32px;
+    text-align: center;
+    color: white;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-circle {
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    backdrop-filter: blur(4px);
+}
+
+.logo-circle mat-icon {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+}
+
+mat-card-title {
+    font-size: 24px !important;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+mat-card-subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin-top: 4px;
+}
+
+mat-card-content {
+    padding: 0 32px 40px 32px;
+}
+
+/* Demo Helper */
+.demo-helper {
+    background-color: #EFF6FF;
+    /* Blue-50 */
+    border-left: 4px solid #3B82F6;
+    /* Blue-500 */
+    padding: 12px 16px;
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+    color: #1E40AF;
+    /* Blue-900 */
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.helper-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+/* Form Sections */
+.form-section {
+    margin-bottom: 24px;
+}
+
+.section-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748B;
+    /* Slate-500 */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Actions */
+.action-row {
+    margin-top: 32px;
+}
+
+.login-btn {
+    width: 100%;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(2, 132, 199, 0.2);
+    transition: transform 0.1s;
+}
+
+.login-btn:active {
+    transform: scale(0.98);
+}

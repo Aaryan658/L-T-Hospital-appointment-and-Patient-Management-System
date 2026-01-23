@@ -1,0 +1,72 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  /* Hospital Blue: Trustworthy, Clean, Professional */
+  background: linear-gradient(90deg, #0284c7 0%, #0369a1 100%) !important;
+  color: white;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+  height: 64px;
+  padding: 0 32px;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  z-index: 1000;
+}
+
+/* Brand Name */
+.brand-name {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+a[mat-button] {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-left: 4px;
+  transition: all 0.2s ease-in-out;
+  letter-spacing: 0.3px;
+  border-radius: 8px;
+  padding: 0 16px;
+  height: 36px;
+  line-height: 36px;
+}
+
+a[mat-button]:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  opacity: 1;
+}
+
+/* Active State: Clean White Pill */
+.active-link {
+  background-color: #ffffff !important;
+  color: #0284c7 !important;
+  /* Text becomes Primary Blue */
+  font-weight: 600 !important;
+  opacity: 1 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+a[mat-button] {
+  white-space: nowrap;
+}
+
+/* Logout: Distinct from Nav */
+.logout-btn {
+  margin-left: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+  font-size: 13px;
+}
+
+.logout-btn:hover {
+  background-color: rgba(239, 68, 68, 0.9);
+  /* Red error color */
+  border-color: transparent;
+  color: white;
+}

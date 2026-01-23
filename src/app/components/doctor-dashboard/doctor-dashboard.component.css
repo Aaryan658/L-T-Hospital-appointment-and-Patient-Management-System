@@ -1,0 +1,431 @@
+/* === Core Layout & Animation === */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1A202C;
+    /* var(--text-primary) equivalent */
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === 1. Doctor Identity Card === */
+.doctor-identity-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 32px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+}
+
+.avatar-circle {
+    width: 64px;
+    height: 64px;
+    background: #E0F7FA;
+    /* Cyan-50 for Doctors? Or stay blue. Let's use stylized blue */
+    background: #E3F2FD;
+    color: #1565C0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-circle.doctor-avatar mat-icon {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+}
+
+.info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.name-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.doctor-name {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1A202C;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.doctor-id {
+    background-color: #EDF2F7;
+    color: #4A5568;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: 0.5px;
+    border: 1px solid #E2E8F0;
+}
+
+.metadata-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #4A5568;
+    font-weight: 500;
+}
+
+.separator {
+    color: #CBD5E0;
+    font-size: 10px;
+}
+
+/* Status Badges in Identity Header */
+.status-badge-sm {
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge-sm.available {
+    background-color: #ECFDF5;
+    color: #047857;
+}
+
+.status-badge-sm.busy {
+    background-color: #FEF2F2;
+    color: #DC2626;
+}
+
+.status-badge-sm.on-leave {
+    background-color: #FFFBEB;
+    color: #B45309;
+}
+
+/* === Tabs === */
+::ng-deep .mat-mdc-tab-group {
+    font-family: 'Inter', sans-serif;
+}
+
+::ng-deep .mat-mdc-tab-labels {
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.tab-content {
+    padding-top: 24px;
+}
+
+/* === Cards Grid (Requests) === */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 24px;
+}
+
+.appointment-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #E2E8F0;
+    overflow: hidden;
+}
+
+.appointment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+.appointment-card.pending {
+    border-left: 4px solid #D69E2E;
+    /* Warning/Pending Yellow */
+}
+
+.appointment-card.approved {
+    border-left: 4px solid #38A169;
+    /* Success Green */
+}
+
+/* Card Header */
+mat-card-header {
+    padding: 16px 16px 0 16px;
+    margin-bottom: 12px;
+}
+
+.patient-avatar-sm {
+    background-color: #EDF2F7;
+    color: #4A5568;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+mat-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2D3748;
+}
+
+mat-card-subtitle {
+    font-size: 13px !important;
+    color: #718096;
+    margin-bottom: 0 !important;
+}
+
+.patient-quick-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.patient-id {
+    background-color: #EDF2F7;
+    color: #4A5568;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: 0.5px;
+    border: 1px solid #E2E8F0;
+    margin-right: 6px;
+}
+
+.info-text {
+    font-size: 12px;
+    color: #4A5568;
+    font-weight: 500;
+}
+
+/* Card Content */
+mat-card-content {
+    padding: 0 16px 16px 16px;
+}
+
+.appt-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 12px;
+}
+
+.highlight-row {
+    background-color: #FFF5F5;
+    padding: 8px 10px;
+    border-radius: 6px;
+    margin-top: 4px;
+    border: 1px solid #FED7D7;
+}
+
+.condition-text {
+    font-weight: 600;
+    color: #C53030;
+    font-size: 13px;
+}
+
+.info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+    color: #4A5568;
+    font-size: 14px;
+}
+
+.mini-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    color: #A0AEC0;
+    margin-top: 2px;
+    /* optical align */
+}
+
+.reason-text {
+    line-height: 1.5;
+    color: #2D3748;
+}
+
+.status-row {
+    margin-top: 16px;
+    text-align: right;
+}
+
+.status-badge {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.status-badge.pending {
+    color: #D69E2E;
+    background: #FFFAF0;
+}
+
+.status-badge.approved {
+    color: #38A169;
+    background: #F0FFF4;
+}
+
+/* Actions */
+.action-buttons {
+    background: #FAFAFA;
+    border-top: 1px solid #F0F0F0;
+    padding: 8px 16px !important;
+}
+
+.reject-btn {
+    color: #E53E3E !important;
+}
+
+/* === Table Layout (Schedule) === */
+.table-container {
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid #E2E8F0;
+}
+
+table {
+    width: 100%;
+}
+
+th.mat-header-cell {
+    background-color: #F8FAFC;
+    color: #64748B;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 18px 24px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+td.mat-cell {
+    padding: 20px 24px;
+    color: #2D3748;
+    border-bottom: 1px solid #EDF2F7;
+    font-size: 14px;
+}
+
+.cell-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.text-strong {
+    font-weight: 600;
+}
+
+.time-hint {
+    color: #718096;
+    font-size: 12px;
+    margin-left: 6px;
+    background: #EDF2F7;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.text-right {
+    text-align: right;
+    justify-content: flex-end;
+}
+
+/* Status Pills (Table) */
+.status-pill {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.status-pill.approved {
+    background-color: #F0FFF4;
+    color: #38A169;
+    border: 1px solid #C6F6D5;
+}
+
+/* === Empty State === */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+    border: 1px dashed #CBD5E0;
+    margin-top: 24px;
+}
+
+.empty-state mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    color: #CBD5E0;
+    margin-bottom: 16px;
+}
+
+.empty-state h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #4A5568;
+    margin: 0 0 8px 0;
+}
+
+.empty-state p {
+    color: #718096;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .dashboard-container {
+        padding: 16px;
+    }
+
+    .card-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}

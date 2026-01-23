@@ -1,0 +1,380 @@
+/* === Core Layout & Animation === */
+.dashboard-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 24px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-primary);
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === 2. Patient Summary (Identity Card) === */
+.patient-identity-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+    /* Distinct section separation */
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+}
+
+.avatar-circle {
+    width: 64px;
+    height: 64px;
+    background: #E3F2FD;
+    /* Soft Blue */
+    color: #1565C0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.avatar-circle mat-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+}
+
+.info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.name-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.patient-name {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1A202C;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.patient-id {
+    background-color: #EDF2F7;
+    color: #4A5568;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: 0.5px;
+    border: 1px solid #E2E8F0;
+}
+
+.metadata-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #4A5568;
+    font-weight: 500;
+}
+
+.separator {
+    color: #CBD5E0;
+    font-size: 10px;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #4A5568;
+}
+
+.separator-dot {
+    color: #CBD5E0;
+    font-size: 8px;
+    /* Smaller dot */
+    margin: 0 4px;
+    /* Explicit margin as backup */
+}
+
+.sub-text {
+    font-weight: 500;
+}
+
+/* === 4. My Appointments Section === */
+.appointments-section {
+    margin-bottom: 48px;
+}
+
+.section-header {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2D3748;
+    margin: 0;
+    position: relative;
+    padding-left: 16px;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 18px;
+    background: #3182CE;
+    /* Primary Blue Accent */
+    border-radius: 2px;
+}
+
+.appointments-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid #E2E8F0;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+}
+
+th.mat-header-cell {
+    background-color: #F8FAFC;
+    color: #64748B;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 18px 24px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+td.mat-cell {
+    padding: 20px 24px;
+    color: #2D3748;
+    border-bottom: 1px solid #EDF2F7;
+    font-size: 14px;
+}
+
+.doctor-info,
+.date-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mini-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    color: #A0AEC0;
+}
+
+.text-strong {
+    font-weight: 600;
+}
+
+.time-hint {
+    color: #718096;
+    font-size: 13px;
+    margin-left: 4px;
+}
+
+.text-right {
+    text-align: right;
+    justify-content: flex-end;
+}
+
+/* Status Pills */
+.status-pill {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.status-pill.pending {
+    background-color: #FFFAF0;
+    color: #D69E2E;
+    border: 1px solid #FEEBC8;
+}
+
+.status-pill.approved {
+    background-color: #F0FFF4;
+    color: #38A169;
+    border: 1px solid #C6F6D5;
+}
+
+.status-pill.rejected {
+    background-color: #FFF5F5;
+    color: #E53E3E;
+    border: 1px solid #FED7D7;
+}
+
+/* === 3. Medical History (Secondary) === */
+.history-section {
+    max-width: 800px;
+    margin: 0 auto;
+    /* Centered visually as it's secondary */
+}
+
+.subsection-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #718096;
+    margin: 0 0 16px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.history-container {
+    background: #F7FAFC;
+    border-radius: 12px;
+    padding: 32px;
+    border: 1px dashed #CBD5E0;
+    text-align: center;
+}
+
+.tags-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.medical-tag {
+    background-color: #F06292;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 4px rgba(233, 30, 99, 0.2);
+}
+
+.tag-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.empty-history-state {
+    color: #718096;
+}
+
+.muted-text {
+    margin: 0;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Empty State */
+.empty-state {
+    padding: 48px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty-state mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    color: #CBD5E0;
+    margin-bottom: 16px;
+}
+
+.empty-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #4A5568;
+    margin: 0 0 4px 0;
+}
+
+.empty-subtitle {
+    font-size: 14px;
+    color: #718096;
+    margin: 0;
+}
+
+.action-button {
+    margin-top: 24px;
+    box-shadow: 0 4px 6px rgba(49, 130, 206, 0.3);
+    letter-spacing: 0.5px;
+    background-color: #3182CE !important;
+    /* Ensure visibility if global styles conflict */
+    color: white !important;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .dashboard-container {
+        padding: 16px;
+    }
+
+    .card-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .name-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+}

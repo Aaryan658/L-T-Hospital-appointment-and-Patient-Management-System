@@ -1,0 +1,185 @@
+/* Layout */
+.page-container {
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 0 24px;
+}
+
+.header-row {
+    margin-bottom: 32px;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.count-badge {
+    background: var(--primary-light);
+    color: var(--primary-color);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Filter Bar */
+.filter-bar {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.filter-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 24px !important;
+    align-items: center;
+}
+
+.search-field {
+    flex: 2;
+    min-width: 250px;
+}
+
+.filter-group {
+    flex: 3;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.filter-select {
+    flex: 1;
+    min-width: 150px;
+}
+
+/* Doctor Grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.doctor-card {
+    border-radius: var(--radius-lg);
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    overflow: hidden;
+    position: relative;
+    padding-top: 8px;
+    /* For status strip */
+}
+
+.doctor-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+/* Status Strip Indicator */
+.card-status-strip {
+    height: 6px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.card-status-strip.available {
+    background: var(--secondary-color);
+}
+
+.card-status-strip.busy {
+    background: var(--accent-color);
+}
+
+.card-status-strip.offline {
+    background: var(--text-muted);
+}
+
+/* Card Components */
+.doctor-avatar {
+    background-color: var(--bg-body) !important;
+    color: var(--primary-dark) !important;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.initials {
+    line-height: 1;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.mini-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    opacity: 0.6;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-top: 16px;
+    color: var(--text-secondary);
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--text-muted);
+}
+
+.status-dot.available {
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px #e0f2f1;
+}
+
+/* Buttons */
+.full-width-btn {
+    width: 100%;
+    margin-top: 8px;
+    padding: 22px 0;
+    /* Taller button */
+    font-weight: 600;
+    border-radius: 8px !important;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    color: #bdbdbd;
+    margin-bottom: 16px;
+}
+
+.empty-state h3 {
+    margin: 0 0 8px 0;
+    color: var(--text-primary);
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+    margin: 0;
+}

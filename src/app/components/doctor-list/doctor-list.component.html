@@ -1,0 +1,90 @@
+<div class="page-container">
+    <div class="header-row flex-between">
+        <h2 class="page-title">Find a Specialist</h2>
+        <span class="count-badge"><strong>{{ availableDoctorsCount }}</strong> specialists available now</span>
+    </div>
+
+    <!-- Search & Filter Bar -->
+    <mat-card class="filter-bar mb-24">
+        <mat-card-content class="filter-content">
+            <mat-form-field appearance="outline" class="search-field">
+                <mat-label>Search by Name or Department</mat-label>
+                <mat-icon matPrefix>search</mat-icon>
+                <input matInput [(ngModel)]="searchText" placeholder="e.g. Dr. Smith or Cardiology">
+            </mat-form-field>
+
+            <div class="filter-group">
+                <mat-form-field appearance="outline" class="filter-select">
+                    <mat-label>Specialization</mat-label>
+                    <mat-select [(ngModel)]="filterSpec">
+                        <mat-option value="">All Departments</mat-option>
+                        <mat-option value="Cardiology">Cardiology</mat-option>
+                        <mat-option value="Neurology">Neurology</mat-option>
+                        <mat-option value="Pediatrics">Pediatrics</mat-option>
+                        <mat-option value="Orthopedics">Orthopedics</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="filter-select">
+                    <mat-label>Status</mat-label>
+                    <mat-select [(ngModel)]="filterStatus">
+                        <mat-option value="">All Statuses</mat-option>
+                        <mat-option value="Available">Available</mat-option>
+                        <mat-option value="Busy">Busy</mat-option>
+                        <mat-option value="On Leave">On Leave</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <ng-container *ngIf="(doctors | doctorFilter:filterSpec:filterStatus:searchText) as filteredDoctors">
+        <div class="card-grid" *ngIf="filteredDoctors.length > 0; else noDoctors">
+            <mat-card *ngFor="let doctor of filteredDoctors" class="doctor-card">
+                <div class="card-status-strip" [class.available]="doctor.status === 'Available'"
+                    [class.busy]="doctor.status === 'Busy'" [class.offline]="doctor.status === 'On Leave'"></div>
+
+                <mat-card-header>
+                    <div mat-card-avatar class="doctor-avatar">
+                        <span class="initials">{{ doctor.name.substring(0, 1) }}</span>
+                    </div>
+                    <mat-card-title>{{ doctor.name }}</mat-card-title>
+                    <mat-card-subtitle>{{ doctor.qualification }} • {{ doctor.department }}</mat-card-subtitle>
+                </mat-card-header>
+
+                <mat-card-content>
+                    <div class="info-row">
+                        <mat-icon class="mini-icon">business_center</mat-icon>
+                        <span>{{ doctor.experience }} Years Experience</span>
+                    </div>
+                    <div class="info-row" *ngIf="doctor.clinicRoom">
+                        <mat-icon class="mini-icon">meeting_room</mat-icon>
+                        <span>{{ doctor.clinicRoom }}</span>
+                    </div>
+                    <div class="status-indicator">
+                        <span class="status-dot" [class.available]="doctor.status === 'Available'"></span>
+                        {{ doctor.status }}
+                    </div>
+                </mat-card-content>
+
+                <mat-divider></mat-divider>
+
+                <mat-card-actions align="end">
+                    <button mat-raised-button [color]="doctor.status === 'Available' ? 'primary' : 'warn'"
+                        [disabled]="doctor.status !== 'Available'"
+                        (click)="doctor.status === 'Available' ? onBook(doctor) : null" class="full-width-btn">
+                        {{ doctor.status === 'Available' ? 'Book Appointment' : 'Currently '+doctor.status }}
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+        <ng-template #noDoctors>
+            <div class="empty-state">
+                <mat-icon>search_off</mat-icon>
+                <h3>No Doctors Found</h3>
+                <p>Try adjusting your search or filters to find what you're looking for.</p>
+            </div>
+        </ng-template>
+    </ng-container>
+</div>

@@ -1,0 +1,42 @@
+<div class="form-container">
+    <h2>Book an Appointment</h2>
+    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+
+
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Patient Name</mat-label>
+            <input matInput formControlName="patientName">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Select Doctor</mat-label>
+            <mat-select formControlName="doctorId">
+                <mat-option *ngFor="let doctor of availableDoctors" [value]="doctor.id">
+                    {{ doctor.name }} ({{ doctor.specialization }})
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="appointmentForm.get('doctorId')?.invalid">Please select a doctor</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Preferred Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="preferredDate">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="appointmentForm.get('preferredDate')?.hasError('required')">Date is required</mat-error>
+            <mat-error *ngIf="appointmentForm.get('preferredDate')?.hasError('pastDate')">Date cannot be in the
+                past</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Reason for Visit</mat-label>
+            <textarea matInput formControlName="reason" rows="3" placeholder="Briefly describe your concern"></textarea>
+            <mat-error *ngIf="appointmentForm.get('reason')?.invalid">Reason is required</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="appointmentForm.invalid" class="submit-btn">
+            Submit Request
+        </button>
+    </form>
+</div>

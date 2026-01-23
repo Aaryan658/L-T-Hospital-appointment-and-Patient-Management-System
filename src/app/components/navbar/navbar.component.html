@@ -1,0 +1,16 @@
+<mat-toolbar color="primary" class="navbar-medical shadow-sm">
+  <span class="brand-name" routerLink="/">
+    <mat-icon class="brand-icon">local_hospital</mat-icon>
+    MediSync
+  </span>
+  <span class="spacer"></span>
+  <div class="nav-links">
+    <ng-container *ngIf="navItems$ | async as navItems">
+      <a mat-button *ngFor="let item of navItems" [routerLink]="item.path"
+        (click)="item.action ? onItemClick(item) : null" [routerLinkActive]="'active-link'"
+        [routerLinkActiveOptions]="{exact: true}" [class.logout-btn]="item.action === 'logout'">
+        {{ item.label }}
+      </a>
+    </ng-container>
+  </div>
+</mat-toolbar>
