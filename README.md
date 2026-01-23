@@ -1,6 +1,6 @@
  Hospital Appointment and Patient Management System (Angular)
 
-> Phase 1: UI Scaffolding & Domain Modeling
+Phase 1: UI Scaffolding & Domain Modeling
 
 This project represents the early-stage development of a healthcare platform. It focuses on establishing a professional architecture, strong typing, and presentational component design before integrating complex business logic or backend services.
 
