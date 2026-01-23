@@ -1,4 +1,4 @@
- Hospital Appointment and Patient Management System (Angular)
+<img width="1087" height="270" alt="image" src="https://github.com/user-attachments/assets/37ce410b-2249-4f81-ace2-8141fc506121" /> Hospital Appointment and Patient Management System (Angular)
 
 Phase 1: UI Scaffolding & Domain Modeling
 
