@@ -1,4 +1,4 @@
-<img width="1087" height="270" alt="image" src="https://github.com/user-attachments/assets/37ce410b-2249-4f81-ace2-8141fc506121" /> Hospital Appointment and Patient Management System (Angular)
+Hospital Appointment and Patient Management System (Angular)
 
 Phase 1: UI Scaffolding & Domain Modeling
 
@@ -14,11 +14,7 @@ This project represents the early-stage development of a healthcare platform. It
 2.  Type Safety:
     -   Strict TypeScript usage with interfaces ("Doctor", "Patient", "Appointment").
     -   No "any" types; usage of Union Types for status fields.
-    🔐 Demo Credentials
-    | Role | Email Pattern | Password |
-    |------|---------------|----------|
-    | Patient | "*@medisync.com" | "patientPass123" |
-    | Doctor  | "*@medisync.com" | "doctorPass123" |
+<img width="1087" height="270" alt="image" src="https://github.com/user-attachments/assets/37ce410b-2249-4f81-ace2-8141fc506121" />
 
  🛠 Tech Stack
 -   Framework: Angular 17+ (Standalone Components)
@@ -26,20 +22,7 @@ This project represents the early-stage development of a healthcare platform. It
 -   Styling: Vanilla CSS (Modular & Scoped)
 -   Architecture: Component-based, Data-driven
 
- 📂 Project Structure
-
-src/app/
-├── components/          # Presentational Components
-│   ├── appointment-form
-│   ├── doctor-dashboard
-│   ├── doctor-list
-│   ├── navbar
-│   └── patient-dashboard
-├── mock-data/           # Static data simulation (API Abstraction)
-├── models/              # Pure TypeScript Interfaces
-├── app.component.ts     # State Container & Logic
-└── app.html             # Main View Template
-
+<img width="893" height="480" alt="image" src="https://github.com/user-attachments/assets/cbf01c99-d6bf-4e66-9ef6-68e4ee8c5fcb" />
 
  🚀 How to Run
 1.  Clone: "git clone <repo-url>"
